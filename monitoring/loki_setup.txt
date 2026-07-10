@@ -1,0 +1,37 @@
+Grafana Loki Setup
+
+1. Pull the Loki Docker image:
+
+docker pull grafana/loki:latest
+
+2. Start Loki:
+
+docker run -d \
+  --name loki \
+  -p 3100:3100 \
+  grafana/loki:latest
+
+3. Verify Loki is running:
+
+docker ps
+
+4. View Loki logs:
+
+docker logs loki
+
+5. Check Loki readiness:
+
+curl http://localhost:3100/ready
+
+Expected output:
+
+ready
+
+6. (Optional)
+
+If Grafana is installed:
+
+- Open http://localhost:3000
+- Add Loki as a data source
+- Open Explore
+- View application logs
